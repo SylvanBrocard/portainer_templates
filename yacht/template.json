@@ -4250,6 +4250,65 @@
             "container": "/config"
           }
         ]
+      },
+      {
+        "type": 1,
+        "title": "Webtop",
+        "name": "Webtop",
+        "note": "Portainer App Templates by <a href='https://www.technorabilia.com' target='_blank'>Technorabilia</a> based on data provided by <a href='https://www.linuxserver.io' target='_blank'>LinuxServer.io</a>.</p><p>Don't forget to create the volume directories on the host file system.</p><p>mkdir -p /volume1/docker/webtop/config<br></p>",
+        "description": "[Webtop](https://github.com/linuxserver/gclient) - Alpine, Ubuntu, Fedora, and Arch based containers containing full desktop environments in officially supported flavors accessible via any modern web browser.",
+        "categories": [
+          "Utilities"
+        ],
+        "platform": "linux",
+        "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/webtop-logo.png",
+        "image": "linuxserver/webtop:latest",
+        "env": [
+          {
+            "name": "PUID",
+            "label": "PUID",
+            "default": "1024",
+            "description": "for UserID"
+          },
+          {
+            "name": "PGID",
+            "label": "PGID",
+            "default": "100",
+            "description": "for GroupID"
+          },
+          {
+            "name": "TZ",
+            "label": "TZ",
+            "default": "Europe/Amsterdam",
+            "description": "Specify a timezone to use for example Europe/Amsterdam"
+          },
+          {
+            "name": "SUBFOLDER",
+            "label": "SUBFOLDER",
+            "default": "/",
+            "description": "Specify a subfolder to use with reverse proxies, IE `/subfolder/`"
+          },
+          {
+            "name": "KEYBOARD",
+            "label": "KEYBOARD",
+            "default": "en-us-qwerty",
+            "description": "See the keyboard layouts section for more information and options."
+          }
+        ],
+        "ports": [
+          "3000:3000/tcp"
+        ],
+        "volumes": [
+        {
+          "container": "/config",
+          "bind": "!config/webtop"
+        },
+        {
+          "container": "/var/run/docker.sock",
+          "bind": "/var/run/docker.sock"
+        }
+        ],
+        "restart_policy": "unless-stopped"
       }
   ]
   
