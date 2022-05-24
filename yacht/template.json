@@ -4309,6 +4309,35 @@
         }
         ],
         "restart_policy": "unless-stopped"
+      },
+      {
+        "type": 1,
+        "title": "FlareSolverr",
+        "name": "FlareSolverr",
+        "description": "FlareSolverr is a proxy server to bypass Cloudflare and DDoS-GUARD protection.",
+        "categories": [
+          "Utilities"
+        ],
+        "platform": "linux",
+        "image": "ghcr.io/flaresolverr/flaresolverr:latest",
+        "env": [
+          {
+            "name": "PUID",
+            "label": "PUID",
+            "default": "!PUID",
+            "description": "for UserID"
+          },
+          {
+            "name": "PGID",
+            "label": "PGID",
+            "default": "!PGID",
+            "description": "for GroupID"
+          }
+        ],
+        "ports": [
+          "8191:8191/tcp"
+        ],
+        "restart_policy": "unless-stopped"
       }
   ]
   
