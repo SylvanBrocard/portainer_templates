@@ -4220,6 +4220,36 @@
           "label": "DNSPLUGIN"
         }
       ]
-    }
+    },
+    {
+        "categories": ["Other", "Tools"],
+        "description": "Overseerr is a free and open source software application for managing requests for your media library.",
+        "env": [
+          {
+            "default": "1000",
+            "label": "PUID",
+            "name": "PUID"
+          },
+          {
+            "default": "100",
+            "label": "PGID",
+            "name": "PGID"
+          }
+        ],
+        "image": "hotio/overseerr:release",
+        "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/overseerr-icon.png",
+        "name": "Overseerr",
+        "platform": "linux",
+        "ports": ["5055:5055/tcp"],
+        "restart_policy": "unless-stopped",
+        "title": "Overseerr",
+        "type": 1,
+        "volumes": [
+          {
+            "bind": "!config/Overseerr",
+            "container": "/config"
+          }
+        ]
+      }
   ]
   
