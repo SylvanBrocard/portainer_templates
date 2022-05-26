@@ -4338,6 +4338,58 @@
           "8191:8191/tcp"
         ],
         "restart_policy": "unless-stopped"
+      },
+      {
+        "type": 1,
+        "title": "Whisparr",
+        "name": "Whisparr",
+        "description": "Whisparr is an adult movie collection manager for Usenet and BitTorrent users. It can monitor multiple RSS feeds for new movies and will interface with clients and indexers to grab, sort, and rename them. It can also be configured to automatically upgrade the quality of existing files in the library when a better quality format becomes available.",
+        "categories": [
+          "Utilities"
+        ],
+        "platform": "linux",
+        "image": "cr.hotio.dev/hotio/whisparr:nightly",
+        "env": [
+          {
+            "name": "PUID",
+            "label": "PUID",
+            "default": "!PUID",
+            "description": "for UserID"
+          },
+          {
+            "name": "PGID",
+            "label": "PGID",
+            "default": "!PGID",
+            "description": "for GroupID"
+          },
+          {
+            "name": "TZ",
+            "label": "TZ",
+            "default": "Europe/Amsterdam",
+            "description": "Specify a timezone to use for example Europe/Amsterdam"
+          },
+          {
+            "name": "UMASK",
+            "label": "UMASK",
+            "default": "002"
+          }
+        ],
+        "ports": [
+          {
+            "WebUI": "6969:6969/tcp"
+          }
+        ],
+        "volumes": [
+          {
+            "container": "/config",
+            "bind": "!config/whispar"
+          },
+          {
+            "container": "/adult",
+            "bind": "!adult"
+          }
+        ],
+        "restart_policy": "unless-stopped"
       }
   ]
   
